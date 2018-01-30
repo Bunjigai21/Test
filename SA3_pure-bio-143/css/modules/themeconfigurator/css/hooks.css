@@ -1,0 +1,152 @@
+/* Home hook CSS */
+/*#htmlcontent_home ul {
+  margin: 0 -5px; }
+  #htmlcontent_home ul li {
+    padding: 0 5px 10px; }
+    @media (max-width: 479px) {
+      #htmlcontent_home ul li {
+        width: 100%; } }
+    #htmlcontent_home ul li img {
+      max-width: 100%;
+      height: auto; }
+      @media (max-width: 479px) {
+        #htmlcontent_home ul li img {
+          min-width: 100%; } }
+    #htmlcontent_home ul li.htmlcontent-item-5 {
+      width: 66.6667%; }
+      @media (max-width: 479px) {
+        #htmlcontent_home ul li.htmlcontent-item-5 {
+          width: 100%; } }*/
+
+/* Top hook CSS */
+/*  #htmlcontent_top {
+    float: right;
+    width: 33%;
+    max-width: 391px;
+    padding-left: 5px;
+}
+  @media (max-width: 767px) {
+    #htmlcontent_top {
+      width: 100%;
+      max-width: 100%;
+      padding-left: 0;
+      padding-top: 0px; } }
+  @media (max-width: 767px) {
+    #htmlcontent_top ul {
+      margin: 0 -5px; } }
+  #htmlcontent_top ul li {
+    width: 100%;
+    margin-bottom: 10px; }
+    @media (max-width: 767px) {
+      #htmlcontent_top ul li {
+        float: left;
+        padding-left: 5px;
+        padding-right: 5px;
+        width: 50%; } }
+    #htmlcontent_top ul li:last-child {
+      margin-bottom: 0; }
+    #htmlcontent_top ul li img {
+      max-width: 100%;
+      height: auto; }*/
+
+/* Left hook CSS */
+/* Right hook CSS */
+/* Footer hook CSS */
+
+/*nouveau design*/
+#htmlcontent_home ul {
+  margin: 0 -5px; }
+  #htmlcontent_home ul li {
+    padding: 0 5px 10px; }
+    @media (max-width: 479px) {
+      #htmlcontent_home ul li {
+        width: 100%; } }
+    #htmlcontent_home ul li img {
+      max-width: 100%;
+      height: auto; }
+      @media (max-width: 479px) {
+        #htmlcontent_home ul li img {
+          min-width: 100%; } }
+    #htmlcontent_home ul li.htmlcontent-item-5 {
+      width: 66.6667%; }
+      @media (max-width: 479px) {
+        #htmlcontent_home ul li.htmlcontent-item-5 {
+          width: 100%; } }
+
+/* Top hook CSS */
+  #htmlcontent_top {
+    float: right;
+    width: 33%;
+    max-width: 391px;
+    padding-left: 5px;
+}
+#htmlcontent_top ul li {
+    width: 33.3333%;
+    margin-bottom: 1.2em; }
+  #htmlcontent_top ul li:last-child {
+    margin-bottom: 0; }
+  #htmlcontent_top ul li img {
+    max-width: 100%;
+	max-height: 212px;
+    height: auto; }
+@media (max-width: 1201px) and (min-width: 992px){
+	#htmlcontent_top{
+	  width:33%;
+	  max-width:100%;
+	  padding-left:0;
+	  padding-top:0px;}
+	#htmlcontent_top ul {
+      /*margin: 0 -5px; */ } 
+	#htmlcontent_top ul li {
+      width: 33.33%;
+    margin-bottom: 15px; }
+	#htmlcontent_top ul li img {
+	  max-width:100% !important;
+	  max-height:169px !important;
+	  height:auto !important;
+	  }}
+  @media (max-width: 991px)and (min-width: 768px){
+	#htmlcontent_top{
+	  width:33%;
+	  max-width:100%;
+	  padding-left:0;
+	  padding-top:0px;}
+	#htmlcontent_top ul {
+      margin: 0 0px;  } 
+	#htmlcontent_top ul li {
+      float: left;
+      padding-left: 0.5em;
+      padding-right: 0.5em;
+      width: 33.3%; }
+	#htmlcontent_top ul li img {
+	  max-width:100% !important;
+	  max-height:126px !important;
+	  height:auto !important;
+	  }
+	  }
+  @media (max-width: 767px){
+    #htmlcontent_top {
+      width: 33.3333%;
+      max-width: 100%;
+      padding-left: 0px;
+      padding-top: 0px; } 
+    #htmlcontent_top ul {
+      margin: 0 0px; } 
+	#htmlcontent_top ul li {
+      float: left;
+	  max-width:246px;
+      padding-left: 0.5em;
+      padding-right: 0.5em;  
+	  margin-bottom:0.6em;
+      width: 33.3333% !important;}
+	#htmlcontent_top ul li img {
+	  max-width:226px !important;
+	  max-height:126px !important;
+	  height:auto !important;
+	  }}
+  
+ 
+
+/* Left hook CSS */
+/* Right hook CSS */
+/* Footer hook CSS */

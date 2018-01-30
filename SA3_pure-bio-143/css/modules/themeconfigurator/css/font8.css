@@ -1,0 +1,10 @@
+body{
+  background: #dce3ff url(../img/background8.jpg) no-repeat center fixed !important;
+  -webkit-background-size: cover !important;
+  background-size: cover !important;
+}
+#page {
+  background-color: #fff;
+  box-shadow: 0 0 30px rgba(0,0,0,0.2);
+  margin-bottom: 100px;
+}

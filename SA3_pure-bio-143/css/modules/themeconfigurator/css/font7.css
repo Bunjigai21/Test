@@ -1,0 +1,8 @@
+body{
+  background: #fff !important;
+}
+#page {
+  background-color: #fff;
+  box-shadow: none !important;
+  margin-bottom: 100px;
+}

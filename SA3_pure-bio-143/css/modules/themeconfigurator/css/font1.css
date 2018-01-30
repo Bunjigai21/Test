@@ -1,0 +1,9 @@
+body{
+  background: #A6EBFF url(../img/background1.jpg) no-repeat fixed bottom center !important;
+}
+
+#page {
+  background-color: #fff !important;
+  box-shadow: 0 0 30px rgba(0,0,0,0.2) !important;
+  margin-bottom: 100px !important;
+}

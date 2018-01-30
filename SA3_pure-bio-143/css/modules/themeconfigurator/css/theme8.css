@@ -1,0 +1,125 @@
+/* THEME bleu ciel */
+
+/* 00E2FF BASE  */
+/* 87EAEA CLAIR  */
+/* 0DDFDF FONCE  */
+
+a.product-name:hover{
+  color: #00E2FF !important;
+}
+
+header .nav a {
+  color: #00E2FF !important;
+}
+
+.header_user_info a.account, .header_user_info a.account.active,
+.header_user_info a.login, .header_user_info a.login.active  {
+  color: #FFF !important;
+  background: #00E2FF !important;
+}
+.header_user_info a.logout:before{
+  color: #00E2FF !important;
+}
+
+/* --------------------------------------------------------- CMS info block */ 
+#cmsinfo_block em {
+  background: #00E2FF !important;
+}
+
+/* ----------------------------------------------------------- Product list */
+@media (min-width: 1200px){
+  ul.product_list .product-image-container .quick-view:hover {
+    background: #00E2FF !important;
+  }
+}
+/* ------------------------------------------------------------------PAGINATION */
+.top-pagination-content ul.pagination > li.active > a,
+.top-pagination-content  ul.pagination > li.active > span,
+.top-pagination-content  ul.pagination > li.active > span > span,
+.top-pagination-content  ul.pagination > li.active > a:hover,
+.top-pagination-content  ul.pagination > li.active > span:hover,
+.top-pagination-content  ul.pagination > li.active > a:focus,
+.top-pagination-content  ul.pagination > li.active > span:focus {
+  background-color: #00E2FF !important;
+  border-color: #0DDFDF !important;
+}
+
+.bottom-pagination-content ul.pagination > li.active > a,
+.bottom-pagination-content  ul.pagination > li.active > span,
+.bottom-pagination-content  ul.pagination > li.active > span > span,
+.bottom-pagination-content  ul.pagination > li.active > a:hover,
+.bottom-pagination-content  ul.pagination > li.active > span:hover,
+.bottom-pagination-content  ul.pagination > li.active > a:focus,
+.bottom-pagination-content  ul.pagination > li.active > span:focus {
+  background-color: #00E2FF !important;
+  border-color: #0DDFDF !important;
+}
+/* ----------------------------------------------------------- category */
+.page-heading.product-listing .cat-name:before,
+#subcategories ul li h5:before{
+  color: #00E2FF !important; 
+}
+
+/* ----------------------------------------------------------- panier/smartphone */
+@media (max-width: 767px) { /* PETIT FORMAT tablette et phone */
+
+  .shopping_cart > a:first-child { /*panier*/
+    background: #00E2FF !important;
+  }
+  #header .ajax_cart_quantity {
+    color: #00E2FF !important;
+  }
+
+}
+
+#home-page-tabs > li.active a, #home-page-tabs > li a:hover {
+  background: #00E2FF !important;
+}
+
+
+/* ------------------------------------------------------------- BOUTONS */
+.button.button-medium,
+.button.button-medium:hover,
+.cart_block .cart-buttons a#button_order_cart,
+.list .button.ajax_add_to_cart_button,
+.box-info-product button.exclusive,
+.box-info-product .exclusive,
+.box-info-product .exclusive:hover,
+.button.button-medium.exclusive,
+.button.button-medium.exclusive:hover {
+  border-color: #0DDFDF !important;
+  background: #00E2FF !important;
+  background: -moz-linear-gradient(top, #00E2FF 0%, #87EAEA 100%) !important;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #00E2FF), color-stop(100%, #87EAEA)) !important;
+  background: -webkit-linear-gradient(top, #00E2FF 0%, #87EAEA 100%) !important;
+  background: -o-linear-gradient(top, #00E2FF 0%, #87EAEA 100%) !important;
+  background: -ms-linear-gradient(top, #00E2FF 0%, #87EAEA 100%) !important;
+  background: linear-gradient(top bottom, #00E2FF 0%, #87EAEA 100%) !important;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00E2FF', endColorstr='#87EAEA',GradientType=0 ) !important;
+}
+
+.cart_block .cart-buttons a#button_order_cart span,
+.cart_block .cart-buttons a#button_order_cart:hover span,
+.list .button.ajax_add_to_cart_button span,
+.box-info-product button.exclusive span,
+.box-info-product .exclusive span,
+.button.button-medium span,
+.button.button-medium.exclusive span,
+.button.button-medium.exclusive:hover span{
+  border: 1px solid #87EAEA !important;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.7)!important;
+}
+
+
+/* --------------------------------------------------- ORDER */
+/* step */
+ul.step li.step_current {
+  background: #00E2FF !important;
+}
+ul.step li.step_current span::after {
+  border-left: 31px solid #00E2FF !important;
+}
+ul.step li.step_current span::before {
+  border-color: #00E2FF #00E2FF #00E2FF transparent !important;
+}
+
