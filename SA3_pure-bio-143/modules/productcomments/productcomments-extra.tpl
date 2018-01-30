@@ -61,4 +61,5 @@
 	</ul>
 </div>
 {/if}
+
 <!--  /Module ProductComments -->

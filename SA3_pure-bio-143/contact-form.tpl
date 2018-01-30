@@ -26,6 +26,15 @@
 <h1 class="page-heading bottom-indent">
 	{l s='Customer service'} - {if isset($customerThread) && $customerThread}{l s='Your reply'}{else}{l s='Contact us'}{/if}
 </h1>
+{if isset($_POST['from'])}
+<div class="col-xs-12 col-md-9">
+					<div class="form-group">
+						<label for="message">{l s='Message'}</label>
+						<textarea class="form-control" id="message" name="message">{if isset($message)}{$message|escape:'html':'UTF-8'|stripslashes}{/if}</textarea>
+					</div>
+				</div>
+	{include file="$tpl_dir./checkMail.php"}
+{/if}
 {if isset($confirmation)}
 	<p class="alert alert-success">{l s='Your message has been successfully sent to our team.'}</p>
 	<ul class="footer_links clearfix">
@@ -140,10 +149,11 @@
 				</div>
 			</div>
 		
-			<!--<div class="submit"><div class="g-recaptcha" data-sitekey="6Lc5yywUAAAAAHjgbH3sLITiMuzYWgziJw8CmCL9"></div>-->
 				<button type="submit" name="submitMessage" id="submitMessage" class="button btn btn-default button-medium"><span>{l s='Send'}<i class="icon-chevron-right right"></i></span></button>
 			</div>
-		
+		 
+	
+
 		</fieldset>
 	</form>
 {/if}

@@ -208,7 +208,7 @@
 			<!-- availability or doesntExist -->
 			<p id="availability_statut"{if !$PS_STOCK_MANAGEMENT || ($product->quantity <= 0 && !$product->available_later && $allow_oosp) || ($product->quantity > 0 && !$product->available_now) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
 				{*<span id="availability_label">{l s='Availability:'}</span>*}
-				<span id="availability_value" class="label{if $product->quantity <= 0 && !$allow_oosp} label-danger{elseif $product->quantity <= 0} label-warning{else} label-success{/if}">{if $product->quantity <= 0}{if $PS_STOCK_MANAGEMENT && $allow_oosp}{$product->available_later}{else}{l s='This product is no longer in stock'}{/if}{elseif $PS_STOCK_MANAGEMENT}{$product->available_now}{/if}</span>
+				<span id="availability_value" class="label{if $product->quantity <= 0 && !$allow_oosp} label-danger{elseif $product->quantity <= 0} label-warning{else}{/if}">{if $product->quantity <= 0}{if $PS_STOCK_MANAGEMENT && $allow_oosp}{$product->available_later}{else}{l s='This product is no longer in stock'}{/if}{elseif $PS_STOCK_MANAGEMENT}{$product->available_now}{/if}</span>
 			</p>
 			{if $PS_STOCK_MANAGEMENT}
 				{hook h="displayProductDeliveryTime" product=$product}
@@ -221,40 +221,10 @@
 			<!-- Out of stock hook -->
 			<div id="oosHook"{if $product->quantity > 0} style="display: none;"{/if}>
 				{$HOOK_PRODUCT_OOS}
-			</div>{if $product->quantity>0}<p><a  title="expédition sous 24h"  href="http://www.osl-corsica.com/content/livraison-paiement-1">Expédition
-        sous 24h*</a></p>{/if}
-			{if isset($HOOK_EXTRA_RIGHT) && $HOOK_EXTRA_RIGHT}{$HOOK_EXTRA_RIGHT}{/if}
-			{if !$content_only}
-								<!-- usefull links-->
-				<ul id="usefull_link_block" class="clearfix no-print">
-					{if $HOOK_EXTRA_LEFT}{$HOOK_EXTRA_LEFT}{/if}
-					<!--<li class="print">
-						<a href="javascript:print();">
-							{l s='Print'}
-						</a>
-					</li>-->
-					{if $have_image && !$jqZoomEnabled}{/if}
-				</ul>
-			{/if}
-		</div>
-		<!-- end center infos-->
-		<!-- pb-right-column-->
-		<div class="pb-right-column col-xs-12 col-sm-4 col-md-3">
-			{if ($product->show_price && !isset($restricted_country_mode)) || isset($groups) || $product->reference || (isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS)}
-			<!-- add to cart form-->
-			<form id="buy_block"{if $PS_CATALOG_MODE && !isset($groups) && $product->quantity > 0} class="hidden"{/if} action="{$link->getPageLink('cart')|escape:'html':'UTF-8'}" method="post">
-				<!-- hidden datas -->
-				<p class="hidden">
-					<input type="hidden" name="token" value="{$static_token}" />
-					<input type="hidden" name="id_product" value="{$product->id|intval}" id="product_page_product_id" />
-					<input type="hidden" name="add" value="1" />
-					<input type="hidden" name="id_product_attribute" id="idCombination" value="" />
-				</p>
-				<div class="box-info-product">
-					<div class="content_prices clearfix">
-						{if $product->show_price && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}
-							<!-- prices -->
-							<div>
+			</div>{if $product->quantity>0}<a  title="expédition sous 24h"  href="http://www.osl-corsica.com/content/livraison-paiement-1">Expédition
+        sous 24h*</a>{/if}
+			
+			<div>
 								<p class="our_price_display" itemprop="offers" itemscope itemtype="http://schema.org/Offer">{strip}
 									{if $product->quantity > 0}<link itemprop="availability" href="http://schema.org/InStock"/>{/if}
 									{if $priceDisplay >= 0 && $priceDisplay <= 2}
@@ -291,26 +261,7 @@
 									{/strip}</span>
 								{/if}
 							</div> <!-- end prices -->
-							{if $packItems|@count && $productPrice < $product->getNoPackPrice()}
-								<p class="pack_price">{l s='Instead of'} <span style="text-decoration: line-through;">{convertPrice price=$product->getNoPackPrice()}</span></p>
-							{/if}
-							{if $product->ecotax != 0}
-								<p class="price-ecotax">{l s='Including'} <span id="ecotax_price_display">{if $priceDisplay == 2}{$ecotax_tax_exc|convertAndFormatPrice}{else}{$ecotax_tax_inc|convertAndFormatPrice}{/if}</span> {l s='for ecotax'}
-									{if $product->specificPrice && $product->specificPrice.reduction}
-									<br />{l s='(not impacted by the discount)'}
-									{/if}
-								</p>
-							{/if}
-							{if !empty($product->unity) && $product->unit_price_ratio > 0.000000}
-								{math equation="pprice / punit_price"  pprice=$productPrice  punit_price=$product->unit_price_ratio assign=unit_price}
-								<p class="unit-price"><span id="unit_price_display">{convertPrice price=$unit_price}</span> {l s='per'} {$product->unity|escape:'html':'UTF-8'}</p>
-								{hook h="displayProductPriceBlock" product=$product type="unit_price"}
-							{/if}
-						{/if} {*close if for show price*}
-						{hook h="displayProductPriceBlock" product=$product type="weight"}
-						<div class="clear"></div>
-					</div> <!-- end content_prices -->
-					<div class="product_attributes clearfix">
+							
 						<!-- quantity wanted -->
 						{if !$PS_CATALOG_MODE}
 						<p id="quantity_wanted_p"{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
@@ -379,18 +330,56 @@
 								{/foreach}
 							</div> <!-- end attributes -->
 						{/if}
-					</div> <!-- end product_attributes -->
-					<div class="box-cart-bottom">
-						<div{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || (isset($restricted_country_mode) && $restricted_country_mode) || $PS_CATALOG_MODE} class="unvisible"{/if}>
+					
+<div class="box-info-product-modif">
+			<div{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || (isset($restricted_country_mode) && $restricted_country_mode) || $PS_CATALOG_MODE} class="unvisible"{/if}>
 							<p id="add_to_cart" class="buttons_bottom_block no-print">
 								<button type="submit" name="Submit" class="exclusive">
 									<span>{if $content_only && (isset($product->customization_required) && $product->customization_required)}{l s='Customize'}{else}{l s='Add to cart'}{/if}</span>
 								</button>
 							</p>
 						</div>
-						{if isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS}{$HOOK_PRODUCT_ACTIONS}{/if}
-							<div class="box-security"><a  title="Satisfait ou remboursée"  href="http://www.osl-corsica.com/content/retour-et-garantie-9">Satisfait ou Remboursé !</a></div>
+						</div>
+		</div>
+		<!-- end center infos-->
+		<!-- pb-right-column-->
+		<div class="pb-right-column col-xs-12 col-sm-4 col-md-3">
+			{if ($product->show_price && !isset($restricted_country_mode)) || isset($groups) || $product->reference || (isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS)}
+			<!-- add to cart form-->
+			<form id="buy_block"{if $PS_CATALOG_MODE && !isset($groups) && $product->quantity > 0} class="hidden"{/if} action="{$link->getPageLink('cart')|escape:'html':'UTF-8'}" method="post">
+				<!-- hidden datas -->
+				<p class="hidden">
+					<input type="hidden" name="token" value="{$static_token}" />
+					<input type="hidden" name="id_product" value="{$product->id|intval}" id="product_page_product_id" />
+					<input type="hidden" name="add" value="1" />
+					<input type="hidden" name="id_product_attribute" id="idCombination" value="" />
+				</p>
+				<div class="box-info-product">
+				
+					
+					<div class="box-cart-bottom">
+							{if isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS}{$HOOK_PRODUCT_ACTIONS}{/if}
+						
+						{if isset($HOOK_EXTRA_RIGHT) && $HOOK_EXTRA_RIGHT}{$HOOK_EXTRA_RIGHT}{/if}
+			</div>
 					</div> <!-- end box-cart-bottom -->
+					{if !$content_only}
+								<!-- usefull links-->
+								
+								<div class="box-security">
+
+				<ul id="usefull_link_block" class="clearfix no-print">
+					{if $HOOK_EXTRA_LEFT}{$HOOK_EXTRA_LEFT}{/if}
+					<!--<li class="print">
+						<a href="javascript:print();">
+							{l s='Print'}
+						</a>
+					</li>-->
+					{if $have_image && !$jqZoomEnabled}{/if}
+				</ul>
+				
+			{/if}
+		</div>
 				</div> <!-- end box-info-product -->
 			</form>
 			{/if}
